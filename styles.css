@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ccc;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    max-width: 768px;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input.error {
+    border-color: #c00;
+}
+
+label {
+    color: #666;
+    font-size: .9rem;
+}
+
+label.error {
+    color: #c00;
+}
+
+button {
+    background-color: #f44;
+    color: #fff;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f22;
+}
+
+#testBox {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: #069;
+    color: #fff;
+    padding: 1rem;
+}
+
+/* Lightcase overrides */
+#lightcase-overlay {
+    background-color: #000;
+}
+
+#lightcase-info #lightcase title,
+#lightcase-info #lightcase-caption {
+    color:#fff;
+}
+
+/* FlexSlider overrides */
+.flexslider {
+    border: none;
+}
+.flex-control-nav {
+    bottom: 5px;
+    z-index: 9;
+}
+
+.flex-control-paging li a {
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 0 0 2px 0 #000;
+}
+.flex-control-paging li a.flex-active, 
+.flex-control-paging li a:hover {
+    background-color: #fff;
+}
+.flex-direction-nav a::before {
+    color: rgba(255, 255, 255, .8);
+    text-shadow: 0 0 2px #000;
+}
+.flexslider-texts {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0 60px;
+}
+
+.flexslider-texts h2,
+.flexslider-texts p,
+.flexslider-texts a {
+    color: #fff;
+    opacity: 0;
+    transform: translateY(150px);
+    text-shadow: 0 0 5px rgba(0, 0, 0, .75);
+    transition: opacity .5s, transform .5s;
+    margin: 0;
+}
+
+.flexslider-texts h2 {
+    font-size: 2.5rem;
+}
+
+.flexslider-texts p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition-delay: .25s;
+}
+
+.flexslider-texts a {
+    display: inline-block;
+    background-color: #f44;
+    text-decoration: none;
+    text-shadow: none;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    transition-delay: .5s;
+}
+
+.flex-active-slide .flexslider-texts h2,
+.flex-active-slide .flexslider-texts p,
+.flex-active-slide .flexslider-texts a {
+    opacity: 1;
+    transform: translateY(0);
+}

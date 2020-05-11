@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
+    <title>jQuery Validate</title>
+    <link rel="stylesheet" href="vendor/datepicker-1.0.9/dist/datepicker.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    
+
+<main>
+
+    <h1>jQuery Validate</h1>
+
+    <p>Tässä testaillaan vähän jQuery Validate - pluginia.</p>
+
+    <form id="myForm" action="post.php" method="post">
+
+        <p>
+            <label for="firstName">Etunimi</label><br />
+            <input type="text" id="firstName" name="firstName" required />
+        </p>
+
+        <p>
+            <label for="lastName">Sukunimi</label><br />
+            <input type="text" id="lastName" name="lastName" required />
+        </p>
+
+        <p>
+            <label for="email">Sähköposti</label><br />
+            <input type="email" id="email" name="email" class="contact-group" />
+        </p>
+
+        <p>
+            <label for="telephone">Puhelin</label><br />
+            <input type="tel" id="telephone" name="telephone" class="contact-group" />
+        </p>
+
+        <p>
+            <label for="date">Päivämäärä</label><br />
+            <input type="text" id="date" name="date" />
+        </p>
+
+        <p>
+            <label for="shoeSize">Kengännumero</label><br />
+            <input type="text" id="shoeSize" name="shoeSize" />
+        </p>
+
+        <p>
+            <label for="url">URL</label><br />
+            <input type="text" id="url" name="url" />
+        </p>
+
+        <p>
+            <label for="someNumber">Joku nollaa suurempi lukuarvo</label><br />
+            <input type="text" id="someNumber" name="someNumber" />
+        </p>
+
+        <p>
+            <button type="submit">Lähetä</button>
+        </p>
+
+    </form>
+
+</main>
+
+<script src="vendor/jquery-3.5.0.min.js"></script>
+<script src="vendor/jquery-validation-1.19.1/dist/jquery.validate.min.js"></script>
+<script src="vendor/jquery-validation-1.19.1/dist/additional-methods.min.js"></script>
+<script src="vendor/jquery-validation-1.19.1/dist/localization/messages_fi.min.js"></script>
+<script src="vendor/datepicker-1.0.9/dist/datepicker.min.js"></script>
+<script src="vendor/datepicker-1.0.9/i18n/datepicker.fi-FI.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+    console.log('DOM ready, jQuery toimii!');
+
+    jQuery.validator.addMethod('munOmaRule', function(value, element) {
+        return this.optional(element) || (parseFloat(value) > 0); 
+    }, 'Syötä nollaa suurempi lukuarvo');
+
+    $("#myForm").validate({
+        rules: {
+            email: {
+                require_from_group: [1, ".contact-group"]
+            },
+            telephone: {
+                require_from_group: [1, ".contact-group"]
+            },
+            shoeSize: {
+                digits: true
+            },
+            url: {
+                url: true
+            },
+            someNumber: {
+                munOmaRule: true
+            }
+        }
+    });
+
+    $("#date").datepicker({
+        language: 'fi-FI'
+    });
+
+});
+
+
+</script>
+
+
+</body>
+</html>

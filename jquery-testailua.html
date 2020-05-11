@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
+    <title>jQuery-testailua</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    
+
+<main>
+
+    <h1>jQuery</h1>
+
+    <p>Tässä testaillaan vähän jQueryä.</p>
+
+    <button id="nappi1">Nappi 1</button>
+    <button id="nappi2">Nappi 2</button>
+    <button id="nappi3">Nappi 3</button>
+    <button id="nappi4">Nappi 4</button>
+
+    <div id="testBox">
+        Tässä on testiboksi.
+    </div>
+
+</main>
+
+<script src="vendor/jquery-3.5.0.min.js"></script>
+
+<script>
+
+function testiFunktio()
+{
+    console.log('Tämä on testifunktio jee!');
+}
+
+// Document ready - funktio suoritetaan kun DOM on ladattu.
+// $(document).ready() voidaan kirjoittaa myös lyhyemmässä muodossa $()
+$(document).ready(function() {
+
+    console.log('DOM ready, jQuery toimii!'); 
+
+    // Liitetään anonyymi funktio nappi1:n click-tapahtumaan
+    $("#nappi1").click(function() {
+        console.log('Klikkasit nappia 1');  
+    });
+
+    // Liitetään nappi2:n click-tapahtumaan nimetty funktio 
+    $("#nappi2").click(testiFunktio);
+
+    // Liitetään nappi3:n click-tapahtumaan käsky
+    // suorittaa testBoxille slideToggle
+    $("#nappi3").click(function() {
+        $("#testBox").slideToggle();
+        //$("#testBox").fadeToggle();
+    });
+
+    // Liitetään nappi4:n click-tapahtumaan käsky
+    // suorittaa testiBoxille animaatio
+    $("#nappi4").click(function() {
+        $("#testBox").animate({
+            left: "+=200"
+        },
+        1000,
+        function() {
+            console.log('Animaatio suoritettu');
+        });
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
